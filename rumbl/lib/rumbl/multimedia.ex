@@ -104,7 +104,7 @@ defmodule Rumbl.Multimedia do
     Video.changeset(video, attrs)
   end
 
-  def get_user_videos(%User{} = user) do
+  def list_user_videos(%User{} = user) do
     Video
     |> user_videos_query(user)
     |> Repo.all()
