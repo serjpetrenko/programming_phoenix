@@ -15,7 +15,8 @@ defmodule Rumbl.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Rumbl.PubSub},
       # Start the Endpoint (http/https)
-      RumblWeb.Endpoint
+      RumblWeb.Endpoint,
+      {Postgrex, Keyword.put(Application.get_env(:rumbl, Rumbl.Repo), :name, DB)}
       # Start a worker by calling: Rumbl.Worker.start_link(arg)
       # {Rumbl.Worker, arg}
     ]

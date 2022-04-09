@@ -28,10 +28,11 @@ defmodule Rumbl.Accounts.User do
   end
 
   defp put_pass_hash(changeset) do
-    with %Ecto.Changeset{valid?: true, changes: %{password: pass}} <- changeset do
-      put_change(changeset, :password_hash, Pbkdf2.hash_pwd_salt(pass))
-    else
-      _ -> changeset
+    case changeset do
+      %Ecto.Changeset{valid?: true, changes: %{password: pass}} ->
+        put_change(changeset, :password_hash, Pbkdf2.hash_pwd_salt(pass))
+      _ ->
+        changeset
     end
   end
 end
