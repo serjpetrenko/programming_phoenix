@@ -26,6 +26,8 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 import Player from "./player"
+import Video from "./video"
+import socket from "./socket"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
@@ -50,3 +52,5 @@ if(video) {
   console.log("player ready!")
   })
 }
+
+Video.init(socket, document.getElementById("video"))
