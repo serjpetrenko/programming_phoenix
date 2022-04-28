@@ -1,12 +1,15 @@
 defmodule Rumbl.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Rumbl.Multimedia.Annotation
 
   schema "users" do
     field :name, :string
     field :username, :string
     field :password, :string, virtual: true
     field :password_hash, :string
+
+    has_many :annotations, Annotation
 
     timestamps()
   end
