@@ -7,8 +7,6 @@ defmodule Rumbl.Multimedia.Annotation do
   schema "annotations" do
     field :at, :integer
     field :body, :string
-    field :user_id, :id
-    field :video_id, :id
 
     belongs_to :user, User
     belongs_to :video, Video
