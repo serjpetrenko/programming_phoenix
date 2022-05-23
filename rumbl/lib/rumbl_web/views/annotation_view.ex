@@ -1,7 +1,7 @@
 defmodule RumblWeb.AnnotationView do
   use RumblWeb, :view
 
-  def render("annotations.json", %{annotation: annotation}) do
+  def render("annotation.json", %{annotation: annotation}) do
     %{
       id: annotation.id,
       body: annotation.body,
